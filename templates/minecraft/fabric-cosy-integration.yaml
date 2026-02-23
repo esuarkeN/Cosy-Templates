@@ -14,7 +14,7 @@ environment_variables:
   VERSION: '{{version}}'
   EULA: 'true'
   TYPE: 'FABRIC'
-  MODRINTH_PROJECTS: 'fabric-api \n cosy-integration-mod'
+  MODRINTH_PROJECTS: 'fabric-api\ncosy-integration-mod'
 port_mapping:
   '25565/tcp': 25565
 file_mounts:
