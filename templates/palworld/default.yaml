@@ -27,13 +27,13 @@ game_id: 1226
 docker_image_name: hexlo/terraria-server-docker
 docker_image_tag: latest
 environment_variables:
-  PUID: 1000
-  PGID: 1000
-  PORT: 8211
+  PUID: '1000'
+  PGID: '1000'
+  PORT: '8211'
   PLAYERS: '{{player_count}}'
   SERVER_PASSWORD: '{{SERVER_PASSWORD}}'
-  MULTITHREADING: true
-  REST_API_ENABLED: true
+  MULTITHREADING: 'true'
+  REST_API_ENABLED: 'true'
   TZ: UTC
   ADMIN_PASSWORD: '{{admin_password}}'
   Language: '{{language}}'
@@ -49,3 +49,4 @@ file_mounts:
 resource_limit:
   memory: 3GiB
   cpu: 1
+
