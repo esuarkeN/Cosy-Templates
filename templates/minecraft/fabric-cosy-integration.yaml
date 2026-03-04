@@ -10,7 +10,8 @@ variables:
   - name: Memory Allocation (in Gigabyte)
     type: string
     placeholder: memory
-    example: '2'
+    example: '4'
+    default: '6'
 game_id: 38365
 docker_image_name: itzg/minecraft-server
 docker_image_tag: latest
