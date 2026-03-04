@@ -1,16 +1,17 @@
 # yaml-language-server: $schema=../../schema/template.schema.json
 name: ARK Survival Evolved
-description: ARK - Survival Evolved dedicated server with automatic backups and updates
+description: ARK - Survival Evolved dedicated server with automatic backups and updates (based on https://github.com/Hermsi1337/docker-ark-server)
 variables:
   - name: Session Name
     type: string
     placeholder: session_name
     example: 'My ARK Server'
   - name: Server Map
-    type: string
+    type: select
     placeholder: server_map
     default: TheIsland
     example: 'TheIsland'
+    options: ["TheIsland", "Ragnarok", "TheCenter", "ScorechedEarth_P", "Aberration_P", "Extinction", "CrystalIsles", "Valguero_P", "Genesis", "CrystalIsles", "Gen2", "LostIsland", "Fjordur"]
   - name: Server Password
     type: string
     placeholder: server_password
@@ -36,10 +37,15 @@ game_id: 6511
 docker_image_name: hermsi/ark-server
 docker_image_tag: latest
 environment_variables:
+  SESSION_NAME: '{{session_name}}'
   UPDATE_ON_START: '{{update_on_start}}'
   BACKUP_ON_STOP: '{{backup_on_stop}}'
+  SERVER_MAP: '{{server_map}}'
   PRE_UPDATE_BACKUP: 'true'
   WARN_ON_STOP: 'true'
+  SERVER_PASSWORD: '{{server_password}}'
+  ADMIN_PASSWORD: '{{admin_password}}'
+  MAX_PLAYERS: '{{max_players}}'
 port_mapping:
   '7777/udp': 7777      # Game client connections
   '7778/udp': 7778      # Raw UDP socket
